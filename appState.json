@@ -1,0 +1,119 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "83563825-9710-4875-8ab6-7ae2dacdd4c6": {
+        "id": "83563825-9710-4875-8ab6-7ae2dacdd4c6",
+        "parent": null,
+        "name": "sam2indu",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "31f77913-cc22-4069-b680-8d2984a08caf"
+        ],
+        "isRemovable": false,
+        "filePath": "sam2indu"
+      },
+      "31f77913-cc22-4069-b680-8d2984a08caf": {
+        "id": "31f77913-cc22-4069-b680-8d2984a08caf",
+        "parent": "83563825-9710-4875-8ab6-7ae2dacdd4c6",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "sam2indu/lambda.js",
+        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = async (event) => {\n    ddb.delete({\n        TableName: \"testIndu\",\n        Key: {\n            test: \"18\"\n        }\n    }).promise()\n        .then(data => {\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n        });\n\n    return { \"message\": \"Successfully executed\" };\n};",
+        "config": {
+          "runtime": "nodejs12.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
+      }
+    },
+    "rootNode": "83563825-9710-4875-8ab6-7ae2dacdd4c6",
+    "openFiles": [
+      "31f77913-cc22-4069-b680-8d2984a08caf"
+    ],
+    "currentFileId": "31f77913-cc22-4069-b680-8d2984a08caf",
+    "resources": {
+      "ddbtestIndu": {
+        "name": "ddbtestIndu",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 1,
+          "operation": "delete",
+          "table": {
+            "arn": "arn:aws:dynamodb:us-east-1:318300609668:table/testIndu",
+            "name": "testIndu",
+            "partitionKey": "test",
+            "partitionKeyType": "S",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 1,
+            "streamArn": "arn:aws:dynamodb:us-east-1:318300609668:table/testIndu/stream/2019-12-16T05:02:51.964"
+          },
+          "isGlobalEditMode": false,
+          "parameters": {
+            "Key": {
+              "test": "18"
+            },
+            "Item": {},
+            "ExpressionAttributeValues": {}
+          },
+          "triggerParams": {},
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          },
+          "valid": true
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "sam2indu",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1576481965940
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "sam2indu",
+      "url": "https://github.com/Indunil1992/sam2indu"
+    }
+  }
+}
