@@ -2,6 +2,7 @@ let AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
+    debugger;
     ddb.delete({
         TableName: "testIndu",
         Key: {
@@ -13,9 +14,9 @@ exports.handler = async (event) => {
             console.log("dataaaaa");
         })
         .catch(err => {
-                        console.log("errrrrrr");
+            console.log("errrrrrr");
             // error handling goes here
         });
 
-    return { "message": "Successfully executed" };
+    return { "message": "Successfully executed with ddb" };
 };
