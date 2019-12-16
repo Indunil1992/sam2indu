@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "sam2indu/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = async (event) => {\n    ddb.delete({\n        TableName: \"testIndu\",\n        Key: {\n            test: \"18\"\n        }\n    }).promise()\n        .then(data => {\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n        });\n\n    return { \"message\": \"Successfully executed\" };\n};",
+        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = async (event) => {\n    ddb.delete({\n        TableName: \"testIndu\",\n        Key: {\n            test: \"18\"\n        }\n    }).promise()\n        .then(data => {\n            // your code goes here\n            console.log(\"dataaaaa\");\n        })\n        .catch(err => {\n                        console.log(\"errrrrrr\");\n            // error handling goes here\n        });\n\n    return { \"message\": \"Successfully executed\" };\n};",
         "config": {
           "runtime": "nodejs12.x",
           "handler": "handler",
@@ -30,7 +30,16 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": []
+        "triggers": [],
+        "testCases": {
+          "11f0556b-c12d-4c6f-ade3-b203fe06d90a": {
+            "id": "11f0556b-c12d-4c6f-ade3-b203fe06d90a",
+            "name": "Test event",
+            "functionId": "31f77913-cc22-4069-b680-8d2984a08caf",
+            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
+            "eventTemplate": "hello-world"
+          }
+        }
       }
     },
     "rootNode": "83563825-9710-4875-8ab6-7ae2dacdd4c6",
@@ -107,7 +116,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1576481965940
+    "lastSave": 1576482087388
   },
   "VCS_STATE": {
     "provider": "GitHub",
